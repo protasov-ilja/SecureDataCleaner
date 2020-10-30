@@ -25,43 +25,36 @@ namespace SecureDataCleanerLibrary.Url
             switch (dataLocationType)
             {
                 case SecureDataLocation.UrlQuery:
-                    return CleanSecureDataInQuery( data, key);
+                    return CleanSecureDataInQuery(data, key);
                 case SecureDataLocation.UrlRest:
-                    return CleanSecureDataInRest( data, key );
+                    return CleanSecureDataInRest(data, key );
             }
 
             return data;
         }
 
-        private string CleanSecureDataInQuery( string data, string key)
+        private string CleanSecureDataInQuery(string data, string key)
         {
             var queryArgumentPattern = @$"([\?|\&]{key}=)([^\&]*)";
 
-            var encodedData = EncodeData( data, queryArgumentPattern );
+            var encodedData = EncodeData(data, queryArgumentPattern);
  
             return encodedData;
         }
 
-        private string CleanSecureDataInRest( string data, string key )
+        private string CleanSecureDataInRest(string data, string key)
         {
             var restArgumentPattern = @$"(/{key}/)([^/|\?]*)";
 
-            var matches = Regex.Matches( data, restArgumentPattern );
-            foreach ( Match match in matches )
-            {
-                Console.WriteLine( "Group" + match.Groups[ 1 ].Value + "='" + match.Groups[ 2 ].Value + "'" );
-            }
-
-
-            var encodedData = EncodeData( data, restArgumentPattern );
+            var encodedData = EncodeData(data, restArgumentPattern);
 
             return encodedData;
         }
 
         private string EncodeData(string data, string pattern)
         {
-            return Regex.Replace( data, pattern,
-                m => m.Groups[ 1 ].Value + new string( SymbolForEncoding, m.Groups[ 2 ].Value.Length ) );
+            return Regex.Replace(data, pattern,
+                m => m.Groups[1].Value + new string(SymbolForEncoding, m.Groups[2].Value.Length));
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using SecureDataCleanerLibrary.Models;
 
 namespace SecureDataCleanerLibrary
@@ -19,7 +17,7 @@ namespace SecureDataCleanerLibrary
                 ResponseBody = response
             };
 
-            //очищаем secure данные в httpResult, либо создаем новый clearedHttpResult на основе httpResult
+            //очищаем secure данные в httpResult
             var secureDataCleaner = new SecureDataCleaner(secureDataInfoList);
             httpResult = secureDataCleaner.CleanHttpResult(httpResult);
 

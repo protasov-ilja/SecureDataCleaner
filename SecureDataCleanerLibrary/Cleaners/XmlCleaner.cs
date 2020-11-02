@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 using SecureDataCleanerLibrary.Models.Enums;
 
@@ -45,7 +46,7 @@ namespace SecureDataCleanerLibrary.Cleaners
                 element.Value = new string(SymbolForEncoding, valueLength);
             }
 
-            var encodedData = xDocument.ToString();
+            string encodedData = xDocument.ToString(SaveOptions.DisableFormatting);
 
             return encodedData;
         }
@@ -66,7 +67,7 @@ namespace SecureDataCleanerLibrary.Cleaners
                 }
             }
 
-            var encodedData = xDocument.ToString();
+            var encodedData = xDocument.ToString(SaveOptions.DisableFormatting);
 
             return encodedData;
         }

@@ -14,7 +14,7 @@ namespace SecureDataCleanerLibraryTests
             var secureKey = "pass";
             var xmlCleaner = new XmlCleaner();
 
-            var expectedResult = "<auth>\r\n  <user>max</user>\r\n  <pass>XXXXXX</pass>\r\n</auth>";
+            var expectedResult = "<auth><user>max</user><pass>XXXXXX</pass></auth>";
 
             // Act
             var cleanedXml = xmlCleaner.CleanSecureData(xml, secureKey, SecureDataLocation.XmlElementValue);
@@ -32,7 +32,7 @@ namespace SecureDataCleanerLibraryTests
             var secureKey2 = "user";
             var xmlCleaner = new XmlCleaner();
 
-            var expectedResult = "<auth>\r\n  <user>XXX</user>\r\n  <pass>XXXXXX</pass>\r\n</auth>";
+            var expectedResult = "<auth><user>XXX</user><pass>XXXXXX</pass></auth>";
 
             // Act
             var resultXml = xmlCleaner.CleanSecureData(xml, secureKey1, SecureDataLocation.XmlElementValue);

@@ -17,12 +17,19 @@ namespace SecureDataCleanerLibrary
             _cleaners = new List<ICleaner>();
             _cleaners.Add(new UrlCleaner());
             _cleaners.Add(new XmlCleaner());
+            _cleaners.Add(new JsonCleaner());
         }
 
         public SecureDataCleaner(List<SecureDataInfo> secureDataInfoList, List<ICleaner> customCleaners)
             : this(secureDataInfoList)
         {
             _cleaners.AddRange(customCleaners);
+        }
+
+        public SecureDataCleaner(List<SecureDataInfo> secureDataInfoList, ICleaner customCleaners)
+            : this(secureDataInfoList)
+        {
+            _cleaners.Add(customCleaners);
         }
 
         public HttpResult CleanHttpResult(HttpResult httpResult)

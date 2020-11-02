@@ -39,7 +39,7 @@ namespace SecureDataCleanerLibraryTests
             resultXml = jsonCleaner.CleanSecureData(resultXml, secureKey2, SecureDataLocation.JsonElementValue);
 
             // Assert
-            Assert.Equal( expectedResult, resultXml );
+            Assert.Equal(expectedResult, resultXml);
         }
 
         [Fact]

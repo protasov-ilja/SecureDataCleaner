@@ -16,8 +16,8 @@ namespace SecureDataCleanerLibrary.Cleaners
         {
             ProcessedLocations = new List<string>
             {
-                SecureDataLocation.XmlElementValue,
-                SecureDataLocation.XmlAttribute
+                SecureDataLocation.JsonElementValue,
+                SecureDataLocation.JsonAttribute
             };
         }
 

@@ -1,9 +1,12 @@
 ﻿namespace SecureDataCleanerLibrary.Models.Enums
 {
-    public enum SecureDataLocation
+    public static class SecureDataLocation
     {
-        UrlQuery,
-        UrlRest,
-        Json
+        public const string UrlQuery = "UrlQuery";
+        public const string UrlRest = "UrlRest";
+        public const string JsonElementValue = "JsonElementValue";
+        public const string JsonAttribute = "JsonAttribute";
+        public const string XmlElementValue = "XmlElementValue";
+        public const string XmlAttribute = "XmlAttribute";
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SecureDataCleanerLibrary.Models;
 using SecureDataCleanerLibrary.Models.Enums;
-using SecureDataCleanerLibrary.Url;
+using SecureDataCleanerLibrary.Cleaners;
 
 namespace SecureDataCleanerLibrary
 {
@@ -16,6 +16,13 @@ namespace SecureDataCleanerLibrary
             _secureDataInfoList = secureDataInfoList;
             _cleaners = new List<ICleaner>();
             _cleaners.Add(new UrlCleaner());
+            _cleaners.Add(new XmlCleaner());
+        }
+
+        public SecureDataCleaner(List<SecureDataInfo> secureDataInfoList, List<ICleaner> customCleaners)
+            : this(secureDataInfoList)
+        {
+            _cleaners.AddRange(customCleaners);
         }
 
         public HttpResult CleanHttpResult(HttpResult httpResult)
@@ -28,7 +35,7 @@ namespace SecureDataCleanerLibrary
             {
                 var locations = secureDataInfo.LocationsInfo;
                 var secureKey = secureDataInfo.SecureKey;
-                HashSet<SecureDataLocation> secureDataLocations = null;
+                HashSet<string> secureDataLocations = null;
                 if (locations.ContainsKey(PropertyType.Url))
                 {
                     secureDataLocations = locations[PropertyType.Url];
@@ -55,7 +62,7 @@ namespace SecureDataCleanerLibrary
             return httpResult;
         }
 
-        private string CleanSecureData(string data, string secureKey, HashSet<SecureDataLocation> secureDataLocations)
+        private string CleanSecureData(string data, string secureKey, HashSet<string> secureDataLocations)
         {
             foreach (var location in secureDataLocations)
             {

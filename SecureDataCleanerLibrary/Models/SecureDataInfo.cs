@@ -7,6 +7,6 @@ namespace SecureDataCleanerLibrary.Models
     {
         public string SecureKey { get; set; }
 
-        public Dictionary<PropertyType, HashSet<SecureDataLocation>> LocationsInfo { get; set; }
+        public Dictionary<PropertyType, HashSet<string>> LocationsInfo { get; set; }
     }
 }

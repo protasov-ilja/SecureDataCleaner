@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureDataCleanerLibrary", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureDataCleanerLibraryTests", "SecureDataCleanerLibraryTests\SecureDataCleanerLibraryTests.csproj", "{B23C438A-6400-405A-ADC4-708012879CDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtherApp", "OtherApp\OtherApp.csproj", "{5899911C-DDD5-4752-B25D-7F31678D87E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B23C438A-6400-405A-ADC4-708012879CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B23C438A-6400-405A-ADC4-708012879CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B23C438A-6400-405A-ADC4-708012879CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5899911C-DDD5-4752-B25D-7F31678D87E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5899911C-DDD5-4752-B25D-7F31678D87E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5899911C-DDD5-4752-B25D-7F31678D87E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5899911C-DDD5-4752-B25D-7F31678D87E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

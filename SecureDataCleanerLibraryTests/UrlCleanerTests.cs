@@ -1,5 +1,5 @@
 using SecureDataCleanerLibrary.Models.Enums;
-using SecureDataCleanerLibrary.Url;
+using SecureDataCleanerLibrary.Cleaners;
 using Xunit;
 
 namespace SecureDataCleanerLibraryTests
@@ -108,7 +108,7 @@ namespace SecureDataCleanerLibraryTests
             var expectedResult = "http://test.com/users/max/info?pass=1234";
 
             // Act
-            var resultUrl = urlCleaner.CleanSecureData(url, secureKeyInRest, SecureDataLocation.Json);
+            var resultUrl = urlCleaner.CleanSecureData(url, secureKeyInRest, SecureDataLocation.JsonAttribute);
 
             // Assert
             Assert.Equal(expectedResult, resultUrl);

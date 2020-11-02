@@ -20,11 +20,11 @@ namespace SecureDataCleanerLibraryTests
             };
             var httpHandler = new HttpHandler();
 
-            var dataLocationQuery = new HashSet<SecureDataLocation> { SecureDataLocation.UrlQuery };
-            var dataLocationRest = new HashSet<SecureDataLocation> { SecureDataLocation.UrlRest };
+            var dataLocationQuery = new HashSet<string> { SecureDataLocation.UrlQuery };
+            var dataLocationRest = new HashSet<string> { SecureDataLocation.UrlRest };
 
             var secureKey1 = "user";
-            var locationsInfo1 = new Dictionary<PropertyType, HashSet<SecureDataLocation>>();
+            var locationsInfo1 = new Dictionary<PropertyType, HashSet<string>>();
             locationsInfo1.Add(PropertyType.RequestBody, dataLocationQuery);
             locationsInfo1.Add(PropertyType.ResponseBody, dataLocationQuery);
             var secureDataInfo1 = new SecureDataInfo
@@ -34,7 +34,7 @@ namespace SecureDataCleanerLibraryTests
             };
 
             var secureKey2 = "pass";
-            var locationsInfo2 = new Dictionary<PropertyType, HashSet<SecureDataLocation>>();
+            var locationsInfo2 = new Dictionary<PropertyType, HashSet<string>>();
             locationsInfo2.Add(PropertyType.Url, dataLocationQuery);
             locationsInfo2.Add(PropertyType.RequestBody, dataLocationQuery);
             locationsInfo2.Add(PropertyType.ResponseBody, dataLocationQuery);
@@ -45,7 +45,7 @@ namespace SecureDataCleanerLibraryTests
             };
 
             var secureKey3 = "users";
-            var locationsInfo3 = new Dictionary<PropertyType, HashSet<SecureDataLocation>>();
+            var locationsInfo3 = new Dictionary<PropertyType, HashSet<string>>();
             locationsInfo3.Add( PropertyType.Url, dataLocationRest);
             var secureDataInfo3 = new SecureDataInfo
             {

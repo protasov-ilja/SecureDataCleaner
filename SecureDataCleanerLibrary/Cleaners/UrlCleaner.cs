@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using SecureDataCleanerLibrary.Models.Enums;
 
-namespace SecureDataCleanerLibrary.Url
+namespace SecureDataCleanerLibrary.Cleaners
 {
     public class UrlCleaner : ICleaner
     {
         private const char SymbolForEncoding = 'X';
 
-        public List<SecureDataLocation> ProcessedLocations { get; private set; }
+        public List<string> ProcessedLocations { get; private set; }
 
         public UrlCleaner()
         {
-            ProcessedLocations = new List<SecureDataLocation>
+            ProcessedLocations = new List<string>
             {
                 SecureDataLocation.UrlQuery,
                 SecureDataLocation.UrlRest
             };
         }
 
-        public string CleanSecureData(string data, string key, SecureDataLocation dataLocationType)
+        public string CleanSecureData(string data, string key, string dataLocationType)
         {
             switch (dataLocationType)
             {

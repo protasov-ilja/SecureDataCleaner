@@ -26,10 +26,10 @@ namespace SecureDataCleanerLibrary
             _cleaners.AddRange(customCleaners);
         }
 
-        public SecureDataCleaner(List<SecureDataInfo> secureDataInfoList, ICleaner customCleaners)
+        public SecureDataCleaner(List<SecureDataInfo> secureDataInfoList, ICleaner customCleaner)
             : this(secureDataInfoList)
         {
-            _cleaners.Add(customCleaners);
+            _cleaners.Add(customCleaner);
         }
 
         public HttpResult CleanHttpResult(HttpResult httpResult)
